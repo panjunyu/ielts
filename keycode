@@ -1,0 +1,21 @@
+document.onkeydown = function(){
+            var oEvent = window.event;  
+            var kc = oEvent.keyCode;// 这段代码能获得当前的keycode键盘值;
+	       
+	    if(oEvent.keyCode == 13 && oEvent.ctrlKey ) {  
+                //alert("你按下了ctrl+enter");  
+		 var user = document.getElementById('user');
+		 var message = document.getElementById('message');
+
+		 var payload = {
+		      message: message.value,
+		      user: user.value
+		  };
+		ws.send(JSON.stringify(payload));
+		message.value = "";
+		
+		
+            }else if(kc == 13){
+		//alert("回车");
+	    }
+ }  //====== end of document.onkeydown = function()====== 
